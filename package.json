@@ -1,0 +1,8 @@
+{
+  "name": "dev-for-tech-back-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "pedro-drosa <pedro_drosa@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {}
+}
