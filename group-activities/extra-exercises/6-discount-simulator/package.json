@@ -1,0 +1,13 @@
+{
+  "name": "6-discount-simulator",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "license": "MIT",
+  "dependencies": {
+    "enquirer": "^2.3.6",
+    "esm": "^3.2.25"
+  },
+  "scripts": {
+    "dev": "node -r esm . "
+  }
+}
