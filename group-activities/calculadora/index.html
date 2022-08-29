@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora do Bruce</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
   </head>
   <body>
     <div></div>
@@ -13,29 +12,31 @@
       <h3>Calculadora do Bruce</h3>
       <div id="operacoes">
         <div id="previous-operacoes"></div>
-        <div id="current-operacoes"></div>
+        <div id="current-operacoes" data-display="current"></div>
       </div>
       <div id="buttons-container">
-        <button>CE</button>
-        <button>C</button>
-        <button>DEL</button>
-        <button>/</button>
-        <button class="numero">7</button>
-        <button class="numero">8</button>
-        <button class="numero">9</button>
-        <button>*</button>
-        <button class="numero">4</button>
-        <button class="numero">5</button>
-        <button class="numero">6</button>
-        <button>-</button>
-        <button class="numero">1</button>
-        <button class="numero">2</button>
-        <button class="numero">3</button>
-        <button>+</button>
-        <button class="numero">0</button>
-        <button class="numero">.</button>
-        <button id="igual-btn">=</button>
+        <button data-button="ce">CE</button>
+        <button data-button="c">C</button>
+        <button data-button="del">DEL</button>
+        <button data-button="/">/</button>
+        <button class="numero" data-button="7">7</button>
+        <button class="numero" data-button="8">8</button>
+        <button class="numero" data-button="9">9</button>
+        <button data-button="*">*</button>
+        <button class="numero" data-button="4">4</button>
+        <button class="numero" data-button="5">5</button>
+        <button class="numero" data-button="6">6</button>
+        <button data-button="-">-</button>
+        <button class="numero" data-button="1">1</button>
+        <button class="numero" data-button="2">2</button>
+        <button class="numero" data-button="3">3</button>
+        <button data-button="+">+</button>
+        <button class="numero" data-button="0">0</button>
+        <button class="numero" data-button=".">.</button>
+        <button id="igual-btn" data-button="=">=</button>
       </div>
     </div>
+    <script src="./Calculator.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
