@@ -1,8 +1,8 @@
-const product = require('../models/product.model');
+const { product, producer } = require('../models');
 
 module.exports = {
   listProducts: async (request, response) => {
-    const products = await product.findAll();
+    const products = await product.findAll({ include: producer });
     return response.status(200).json(products);
   },
 

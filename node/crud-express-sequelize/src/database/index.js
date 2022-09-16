@@ -9,7 +9,8 @@ const DATABASE_CONFIG = {
   port: 3306,
   define: {
     underscored: true,
-    timestamps: false,
+    underscoredAll: true,
+    timestamps: true,
   },
 };
 

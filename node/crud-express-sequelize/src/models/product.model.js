@@ -21,6 +21,13 @@ const product = connection.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    id_producer: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'producers',
+        key: 'id',
+      },
+    },
     created_at: {
       type: DataTypes.DATE,
     },
@@ -28,7 +35,7 @@ const product = connection.define(
       type: DataTypes.DATE,
     },
   },
-  { tableName: 'products' },
+  { tableName: 'products', timestamps: false },
 );
 
 module.exports = product;
