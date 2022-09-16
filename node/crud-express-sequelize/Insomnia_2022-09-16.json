@@ -1,0 +1,167 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-09-16T21:26:47.783Z",
+  "__export_source": "insomnia.desktop.app:v2022.5.1",
+  "resources": [
+    {
+      "_id": "req_d9c5c17761ee4afb8b31a89e5bc480aa",
+      "parentId": "wrk_6147eae0fa7540b5bca915f434a31e31",
+      "modified": 1663341943849,
+      "created": 1663340082115,
+      "url": "{{ _.base_url }}/product",
+      "name": "listProducts",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_fe4f06f4e15f4f4e8d183adaddcdc48b",
+          "name": "name",
+          "value": "Pedro",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1663340082115,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_6147eae0fa7540b5bca915f434a31e31",
+      "parentId": null,
+      "modified": 1663340027888,
+      "created": 1663340027888,
+      "name": "Express-Gama",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_4b1ffa555bdb45c3854c26ee18cb4af8",
+      "parentId": "wrk_6147eae0fa7540b5bca915f434a31e31",
+      "modified": 1663363138565,
+      "created": 1663340105339,
+      "url": "{{ _.base_url }}/product",
+      "name": "createProduct",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Product Example\",\n\t\"price\":6500,\n\t\"quantity\": 5,\n\t\"id_producer\": 1,\n\t\"id_category\": 1\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_3fc7cc4641db4504a521479266696638"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1663332645547,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2dc427380bd046e69edce9a2cb369035",
+      "parentId": "wrk_6147eae0fa7540b5bca915f434a31e31",
+      "modified": 1663362372634,
+      "created": 1663353466030,
+      "url": "{{ _.base_url }}/product/3",
+      "name": "updateProduct",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Product update sample\",\n\t\"price\":6500,\n\t\"quantity\": 5\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_3fc7cc4641db4504a521479266696638"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1663328927263,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_7cd1d99d538b4d2ab860c6f6a8b64c37",
+      "parentId": "wrk_6147eae0fa7540b5bca915f434a31e31",
+      "modified": 1663353452981,
+      "created": 1663341026637,
+      "url": "{{ _.base_url }}/product/1",
+      "name": "deleteProduct",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1663325208979,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_d3ae290244e61e4cb86d7bfa6dbde5aa47c2dc84",
+      "parentId": "wrk_6147eae0fa7540b5bca915f434a31e31",
+      "modified": 1663340071669,
+      "created": 1663340027917,
+      "name": "Base Environment",
+      "data": { "base_url": "http://127.0.0.1:3333" },
+      "dataPropertyOrder": { "&": ["base_url"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1663340027917,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_d3ae290244e61e4cb86d7bfa6dbde5aa47c2dc84",
+      "parentId": "wrk_6147eae0fa7540b5bca915f434a31e31",
+      "modified": 1663340027925,
+      "created": 1663340027925,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_9ed1fd2a0cdb4d7898ddb06afbcef976",
+      "parentId": "wrk_6147eae0fa7540b5bca915f434a31e31",
+      "modified": 1663340027906,
+      "created": 1663340027906,
+      "fileName": "Express-Gama",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
