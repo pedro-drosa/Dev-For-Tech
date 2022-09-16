@@ -3,12 +3,18 @@ const { Router } = require('express');
 const routes = Router();
 
 routes.get('/', (request, response) => {
-  response.send('Olá Express');
+  console.log(request.query);
+  response.send(request.query);
 });
 
 routes.post('/cadastrar', (request, response) => {
   console.log(request.body);
-  response.send(request.body);
+  response.json(request.body);
+});
+
+routes.get('/produto/:id', (request, response) => {
+  console.log(request.params);
+  response.json(request.params);
 });
 
 module.exports = routes;
