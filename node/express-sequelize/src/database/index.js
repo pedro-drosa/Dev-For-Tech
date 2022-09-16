@@ -7,6 +7,10 @@ const DATABASE_CONFIG = {
   username: 'root',
   password: 'mysql',
   port: 3306,
+  define: {
+    underscored: true,
+    timestamps: false,
+  },
 };
 
 const connection = new Sequelize(DATABASE_CONFIG);
