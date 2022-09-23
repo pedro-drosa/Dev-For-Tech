@@ -1,0 +1,413 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-09-22T13:37:31.944Z",
+  "__export_source": "insomnia.desktop.app:v2022.5.1",
+  "resources": [
+    {
+      "_id": "req_947a0d8261184f33bd5c3f9eddbdd8ce",
+      "parentId": "fld_3b18d19209a84731a83615e4de25d95f",
+      "modified": 1663788437238,
+      "created": 1663280589571,
+      "url": "{{ _.base_url }}/contas",
+      "name": "Listar Contas",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_985afa4a2b24496faf1a28e602e40ec7",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1663280589571,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_3b18d19209a84731a83615e4de25d95f",
+      "parentId": "wrk_bfe071e1861e41229b39db7a769b0c2b",
+      "modified": 1663762855242,
+      "created": 1663762855242,
+      "name": "Contas",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1663762855242,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_bfe071e1861e41229b39db7a769b0c2b",
+      "parentId": null,
+      "modified": 1663280567874,
+      "created": 1663280567874,
+      "name": "Digital Bank",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_6e079302dc0046039524a8bbc10097b2",
+      "parentId": "fld_3b18d19209a84731a83615e4de25d95f",
+      "modified": 1663853702988,
+      "created": 1663280950727,
+      "url": "{{ _.base_url }}/contas",
+      "name": "Criar Conta",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\":\"Pedro Mascarenhas\",\n\t\"cpf\":\"11111111122\", \n\t\"data_nascimento\":\"17/09/1995\", \n\t\"telefone\":\"123456\", \n\t\"email\":\"pedro2@mascarenhas.com\", \n\t\"senha\":\"123123\"\n}"
+      },
+      "parameters": [
+        {
+          "id": "pair_985afa4a2b24496faf1a28e602e40ec7",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_28eaf10aa5b84c22bf5195ef5f6e7795"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1663280589521,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_71f91fdcfd1a4c6d82cdf49eeb271f66",
+      "parentId": "fld_3b18d19209a84731a83615e4de25d95f",
+      "modified": 1663853736474,
+      "created": 1663762817836,
+      "url": "{{ _.base_url }}/contas/54785e17-0799-4097-be13-a74a6ffa6e96/usuario",
+      "name": "Atualizar Conta",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\":\"Kalel Pedrosa\",\n\t\"cpf\":\"98765678900\", \n\t\"data_nascimento\":\"21/11/2020\", \n\t\"telefone\":\"99999999\", \n\t\"email\":\"kalel@pedrosa.com\", \n\t\"senha\":\"123123\"\n}"
+      },
+      "parameters": [
+        {
+          "id": "pair_985afa4a2b24496faf1a28e602e40ec7",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_28eaf10aa5b84c22bf5195ef5f6e7795"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1663280589471,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_135965533f5d48608e1245314e330069",
+      "parentId": "fld_3b18d19209a84731a83615e4de25d95f",
+      "modified": 1663781254918,
+      "created": 1663762877283,
+      "url": "{{ _.base_url }}/contas/7ff3ed43-5189-444b-a05c-c5c7906b426a",
+      "name": "Excluir Conta",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_985afa4a2b24496faf1a28e602e40ec7",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1662963392554.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_abe67881836e4b20ac68fc59740fd995",
+      "parentId": "fld_e698ab4812c94733be2604d2c4c2d293",
+      "modified": 1663853748609,
+      "created": 1663762902298,
+      "url": "{{ _.base_url }}/transacoes/depositar",
+      "name": "Depositar",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"numero_conta\": \"54785e17-0799-4097-be13-a74a6ffa6e96\", \n\t\"valor\": 1000\n}"
+      },
+      "parameters": [
+        {
+          "id": "pair_6817784f69d04a1abbf42761529f5f5f",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_e885d7736a5643368636de50e645fb0f"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1663762902298,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_e698ab4812c94733be2604d2c4c2d293",
+      "parentId": "wrk_bfe071e1861e41229b39db7a769b0c2b",
+      "modified": 1663762898674,
+      "created": 1663762896036,
+      "name": "Transações",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1663762855192,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_f9fcb87347f4462aa746c34444b9dfdc",
+      "parentId": "fld_e698ab4812c94733be2604d2c4c2d293",
+      "modified": 1663853754274,
+      "created": 1663762952418,
+      "url": "{{ _.base_url }}/transacoes/sacar",
+      "name": "Sacar",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"numero_conta\": \"54785e17-0799-4097-be13-a74a6ffa6e96\", \n\t\"valor\": 80, \n\t\"senha\": \"123123\"\n}"
+      },
+      "parameters": [
+        {
+          "id": "pair_0e585407fd8046adaced7369dce22b9d",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_62f2ef9093ee458aa3d53f1b1f0b3988"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1663738704921.25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_58fa172095e247ea9919f794c4dfea33",
+      "parentId": "fld_e698ab4812c94733be2604d2c4c2d293",
+      "modified": 1663853756597,
+      "created": 1663762982514,
+      "url": "{{ _.base_url }}/transacoes/transferir",
+      "name": "Transferir",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"numero_conta_origem\": \"54785e17-0799-4097-be13-a74a6ffa6e96\", \n\t\"numero_conta_destino\":\"1c74370b-0d2c-4c7c-9563-93ce649cc7d6\",\n\t\"valor\": 10, \n\t\"senha\": \"123123\"\n}"
+      },
+      "parameters": [
+        {
+          "id": "pair_2cc5277968e14e718b0992aa027c163a",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_7af212afdd19468e98eac34b4264365e"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1663726606232.875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c4a91aa870724098846406101a57f4e6",
+      "parentId": "fld_e698ab4812c94733be2604d2c4c2d293",
+      "modified": 1663853104332,
+      "created": 1663763012319,
+      "url": "{{ _.base_url }}/contas/saldo",
+      "name": "Saldo",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_e7cb1751169f41fe99f7cbe00e0c4e63",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        },
+        {
+          "id": "pair_015f0a92fca44c16ae3598903c1ad861",
+          "name": "numero_conta",
+          "value": "54785e17-0799-4097-be13-a74a6ffa6e96",
+          "description": ""
+        },
+        {
+          "id": "pair_7015b84802ba4c43902166adcea494d7",
+          "name": "senha",
+          "value": "123123",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1663720556888.6875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_57e0037a4fcc4458b56d670214f48425",
+      "parentId": "fld_e698ab4812c94733be2604d2c4c2d293",
+      "modified": 1663853265867,
+      "created": 1663763030483,
+      "url": "{{ _.base_url }}/contas/extrato",
+      "name": "Extrato",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_29cd083edb384e93b34c497cc6139470",
+          "name": "senha_banco",
+          "value": "Dev123",
+          "description": ""
+        },
+        {
+          "id": "pair_760a474811d3479f8cb1d8c1b90fbba0",
+          "name": "numero_conta",
+          "value": "54785e17-0799-4097-be13-a74a6ffa6e96",
+          "description": ""
+        },
+        {
+          "id": "pair_0deb60c36133471c94517c595194f176",
+          "name": "senha",
+          "value": "123123",
+          "description": ""
+        }
+      ],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1663717532216.5938,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_d89fbd376ca431b9caa55864d5b711dc1f9a2aa6",
+      "parentId": "wrk_bfe071e1861e41229b39db7a769b0c2b",
+      "modified": 1663280625530,
+      "created": 1663280567934,
+      "name": "Base Environment",
+      "data": { "base_url": "http://localhost:4000" },
+      "dataPropertyOrder": { "&": ["base_url"] },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1663280567934,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_d89fbd376ca431b9caa55864d5b711dc1f9a2aa6",
+      "parentId": "wrk_bfe071e1861e41229b39db7a769b0c2b",
+      "modified": 1663280567940,
+      "created": 1663280567940,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_1e46907baac64e9ba2916f29a1e0685e",
+      "parentId": "wrk_bfe071e1861e41229b39db7a769b0c2b",
+      "modified": 1663280567887,
+      "created": 1663280567887,
+      "fileName": "Digital Bank",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}

@@ -1,18 +1,22 @@
-let { contas } = require('../database');
+const { randomUUID } = require('crypto');
+const Account = require('../models/Account');
 const { senhaBanco } = require('./verifications.js');
+const { formatISO } = require('date-fns');
 
-const listarContas = (req, res) => {
+const listarContas = async (req, res) => {
   const { senha_banco } = req.query;
 
   senhaBanco(req, res, senha_banco);
 
+  const contas = await Account.find();
+
   return res.status(200).json(contas);
 };
 
-const criarConta = (req, res) => {
+const criarConta = async (req, res) => {
   const { nome, cpf, data_nascimento, telefone, email, senha } = req.body;
   const { senha_banco } = req.query;
-  let identificador = 1;
+  let identificador = randomUUID();
 
   senhaBanco(req, res, senha_banco);
 
@@ -22,19 +26,13 @@ const criarConta = (req, res) => {
       .json({ mensagem: 'Você não informou todos os campos.' });
   }
 
-  if (contas.length !== 0) {
-    identificador = contas.length + 1;
-  }
+  const accounts = await Account.find();
 
-  const cpfExiste = contas.find((conta) => {
-    const { usuario } = conta;
-    return usuario.cpf === cpf;
-  });
+  const cpfExiste = accounts.some((account) => account.usuario.cpf === cpf);
 
-  const emailExiste = contas.find((conta) => {
-    const { usuario } = conta;
-    return usuario.email === email;
-  });
+  const emailExiste = accounts.some(
+    (account) => account.usuario.email === email,
+  );
 
   if (cpfExiste || emailExiste) {
     return res
@@ -42,9 +40,52 @@ const criarConta = (req, res) => {
       .json({ mensagem: 'Já existe uma conta com o cpf ou e-mail informado!' });
   }
 
+  const [day, month, year] = data_nascimento.split('/');
+
+  const data_nascimento_parsed = formatISO(new Date(year, month - 1, day), {
+    representation: 'date',
+  });
+
   const conta = {
     numero: `${identificador}`,
     saldo: 0,
+    usuario: {
+      nome,
+      cpf,
+      data_nascimento: data_nascimento_parsed,
+      telefone,
+      email,
+      senha,
+    },
+  };
+
+  const user = await Account.create(conta);
+
+  return res.status(201).json(user);
+};
+
+const atualizarConta = async (req, res) => {
+  const { nome, cpf, data_nascimento, telefone, email, senha } = req.body;
+  const { senha_banco } = req.query;
+  const { numeroConta } = req.params;
+
+  senhaBanco(req, res, senha_banco);
+
+  if (!nome || !cpf || !data_nascimento || !telefone || !email || !senha) {
+    return res
+      .status(400)
+      .json({ mensagem: 'Você não informou todos os campos.' });
+  }
+
+  const contaExiste = await Account.findOne({ numero: numeroConta });
+
+  if (!contaExiste) {
+    return res
+      .status(404)
+      .json({ mensagem: 'O numero da conta informada não existe.' });
+  }
+
+  const updated = await contaExiste.updateOne({
     usuario: {
       nome,
       cpf,
@@ -53,57 +94,18 @@ const criarConta = (req, res) => {
       email,
       senha,
     },
-  };
+  });
 
-  contas.push(conta);
-
-  return res.status(201).json();
+  return res.status(200).json();
 };
 
-const atualizarConta = (req, res) => {
-  const { nome, cpf, data_nascimento, telefone, email, senha } = req.body;
+const excluirConta = async (req, res) => {
   const { senha_banco } = req.query;
   const { numeroConta } = req.params;
 
   senhaBanco(req, res, senha_banco);
 
-  if (!nome || !cpf || !data_nascimento || !telefone || !email || !senha) {
-    return res
-      .status(400)
-      .json({ mensagem: 'Você não informou todos os campos.' });
-  }
-
-  const contaExiste = contas.find((conta) => {
-    return conta.numero === numeroConta;
-  });
-
-  if (!contaExiste) {
-    return res
-      .status(404)
-      .json({ mensagem: 'O numero da conta informada não existe.' });
-  }
-
-  contaExiste.usuario = {
-    nome,
-    cpf,
-    data_nascimento,
-    telefone,
-    email,
-    senha,
-  };
-
-  return res.status(204).json();
-};
-
-const excluirConta = (req, res) => {
-  const { senha_banco } = req.query;
-  const { numeroConta } = req.params;
-
-  senhaBanco(req, res, senha_banco);
-
-  const contaExiste = contas.find((conta) => {
-    return conta.numero === numeroConta;
-  });
+  const contaExiste = await Account.findOne({ numero: numeroConta });
 
   if (!contaExiste) {
     return res
@@ -117,9 +119,7 @@ const excluirConta = (req, res) => {
       .json({ mensagem: 'A conta só pode ser removida se o saldo for zero!' });
   }
 
-  contas = contas.filter((conta) => {
-    return conta.numero !== contaExiste.numero;
-  });
+  await Account.deleteOne({ numero: numeroConta });
 
   return res.status(200).json();
 };

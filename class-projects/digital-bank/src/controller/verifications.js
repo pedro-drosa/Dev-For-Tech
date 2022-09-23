@@ -1,4 +1,4 @@
-let { contas } = require('../database');
+const Account = require('../models/Account');
 
 const senhaBanco = (req, res, senha_banco) => {
   if (senha_banco !== 'Dev123') {
@@ -8,10 +8,8 @@ const senhaBanco = (req, res, senha_banco) => {
   }
 };
 
-const numeroConta = (req, res, numero_conta) => {
-  const conta = contas.find((conta) => {
-    return conta.numero === numero_conta;
-  });
+const numeroConta = async (req, res, numero_conta) => {
+  const conta = await Account.findOne({ numero: numero_conta });
 
   if (!conta) {
     return res
@@ -22,7 +20,7 @@ const numeroConta = (req, res, numero_conta) => {
   return conta;
 };
 
-const senhaUsuario = (req, res, conta, senha) => {
+const senhaUsuario = async (req, res, conta, senha) => {
   if (conta.usuario.senha !== senha) {
     return res.status(401).json({ mensagem: 'A senha informada é inválida.' });
   }
